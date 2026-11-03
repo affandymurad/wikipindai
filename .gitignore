@@ -1,0 +1,16 @@
+# build output
+dist/
+store/build/tmp/
+store/build/*-render.html
+
+# dependencies and tooling
+node_modules/
+npm-debug.log*
+
+# editors and OS
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.log

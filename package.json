@@ -1,0 +1,19 @@
+{
+  "name": "wikipindai",
+  "version": "1.0.1",
+  "description": "Chrome extension that looks up selected text on Wikimedia projects in a side panel. Scripts here build the Chrome Web Store assets; the extension itself has no build step.",
+  "private": true,
+  "license": "MIT",
+  "author": "Affandy Murad",
+  "homepage": "https://affandymurad.github.io/wikipindai/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/affandymurad/wikipindai.git"
+  },
+  "scripts": {
+    "icons": "node store/build/build-icons.js",
+    "shots": "node store/build/build-shots.js",
+    "tiles": "node store/build/build-tiles.js",
+    "zip": "powershell -NoProfile -ExecutionPolicy Bypass -File store/build/pack-zip.ps1"
+  }
+}

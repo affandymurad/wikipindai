@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Wikipindai store screenshot</title>
+<style>
+  :root { --brand: #4f46e5; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1280px; height: 800px; overflow: hidden; }
+  body {
+    position: relative;
+    background:
+      radial-gradient(900px 600px at 0% 0%, rgba(56, 189, 248, .35), transparent 60%),
+      radial-gradient(800px 700px at 100% 100%, rgba(79, 70, 229, .55), transparent 60%),
+      linear-gradient(135deg, #1e1b4b 0%, #3730a3 45%, #0369a1 100%);
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+    color: #fff;
+  }
+  .left { position: absolute; left: 64px; top: 72px; width: 372px; height: 656px; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 14px; font-size: 26px; font-weight: 800; letter-spacing: -.01em; }
+  .brand img { width: 64px; height: 64px; padding: 7px; border-radius: 16px; background: #fff; box-shadow: 0 6px 18px rgba(2, 6, 23, .35); }
+  h1 { margin: 44px 0 16px; font-size: 44px; line-height: 1.12; letter-spacing: -.025em; font-weight: 800; }
+  .sub { margin: 0; font-size: 20px; line-height: 1.5; color: rgba(255, 255, 255, .86); }
+  ul { margin: 30px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+  li { display: flex; align-items: center; gap: 12px; font-size: 18px; color: rgba(255, 255, 255, .95); }
+  li::before { content: "✓"; flex: none; width: 26px; height: 26px; border-radius: 50%; background: rgba(255, 255, 255, .18); display: grid; place-items: center; font-size: 14px; font-weight: 800; }
+  .legal { margin-top: auto; font-size: 13px; line-height: 1.45; color: rgba(255, 255, 255, .66); }
+
+  .browser { position: absolute; left: 470px; top: 64px; width: 762px; height: 672px; border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 30px 80px rgba(2, 6, 23, .5), 0 0 0 1px rgba(255, 255, 255, .12); }
+  .bar { height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 14px; background: #eef1f6; border-bottom: 1px solid #dde3ec; }
+  .dot { width: 11px; height: 11px; border-radius: 50%; background: #c9d1dd; }
+  .url { margin-left: 12px; flex: 1; max-width: 330px; height: 24px; border-radius: 12px; background: #fff; border: 1px solid #dde3ec; padding: 0 12px; font-size: 12.5px; line-height: 22px; color: #64748b; }
+  .body { position: absolute; top: 40px; left: 0; right: 0; bottom: 0; display: flex; }
+  .page { width: 382px; padding: 28px 26px; background: #fff; position: relative; color: #0f172a; }
+  .page .h { height: 22px; width: 58%; border-radius: 6px; background: #1e293b; margin-bottom: 20px; }
+  .line { height: 10px; border-radius: 5px; background: #e2e8f0; margin-bottom: 12px; }
+  .sel { display: inline-block; height: 18px; vertical-align: middle; border-radius: 3px; background: #bfdbfe; box-shadow: 0 0 0 2px #93c5fd; }
+  .para { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+  .para .line { margin: 0; flex: 1; }
+  .menu { position: absolute; left: 118px; top: 188px; width: 252px; padding: 6px; border-radius: 10px; background: #fff; border: 1px solid #dde3ec; box-shadow: 0 14px 34px rgba(15, 23, 42, .28); font-size: 13.5px; color: #0f172a; }
+  .menu .item { display: flex; align-items: center; gap: 9px; padding: 8px 10px; border-radius: 6px; background: #eef2ff; font-weight: 600; }
+  .menu .item img { width: 16px; height: 16px; }
+  .menu .ghost { padding: 7px 10px; color: #94a3b8; }
+  iframe { width: 380px; height: 632px; border: 0; border-left: 1px solid #dde3ec; background: #fff; }
+</style>
+</head>
+<body>
+<div class="left">
+  <div class="brand"><img src="/build/icon-art.svg" alt=""><span>Wikipindai</span></div>
+  <h1 id="h"></h1>
+  <p class="sub" id="p"></p>
+  <ul id="b"></ul>
+  <div class="legal" id="legal"></div>
+</div>
+
+<div class="browser">
+  <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><div class="url">example.org/article</div></div>
+  <div class="body">
+    <div class="page" id="page">
+      <div class="h"></div>
+      <div class="line" style="width:96%"></div><div class="line" style="width:90%"></div>
+      <div class="para"><div class="line" style="flex:0 0 22%"></div><span class="sel" id="selbar"></span><div class="line"></div></div>
+      <div class="line" style="width:94%"></div><div class="line" style="width:70%"></div>
+      <div class="line" style="width:92%;margin-top:26px"></div><div class="line" style="width:88%"></div><div class="line" style="width:95%"></div><div class="line" style="width:60%"></div>
+      <div class="line" style="width:90%;margin-top:26px"></div><div class="line" style="width:94%"></div><div class="line" style="width:86%"></div><div class="line" style="width:52%"></div>
+      <div class="menu" id="menu"><div class="item"><img src="/build/icon-art.svg" alt=""><span id="menutext"></span></div><div class="ghost" id="ghost"></div></div>
+    </div>
+    <iframe id="panel" title="Wikipindai"></iframe>
+  </div>
+</div>
+
+<script>
+const T = {
+  detail: {
+    en: { h: 'Look it up without leaving the page', p: 'Select text, right-click, and the answer opens in Chrome’s side panel.', b: ['Description and opening paragraph', 'Read aloud with on-device voices', 'Open on Wikidata with one click'] },
+    id: { h: 'Cari tanpa meninggalkan halaman', p: 'Blok teks, klik kanan, dan jawabannya terbuka di panel samping Chrome.', b: ['Deskripsi dan paragraf pembuka', 'Dibacakan dengan suara di perangkat', 'Buka di Wikidata dengan satu klik'] }
+  },
+  interwiki: {
+    en: { h: 'Every language and project in one list', p: 'The interwiki directory shows where a topic exists, with filters, search and pages.', b: ['Filter by project', 'Search languages and titles', '12 links per page'] },
+    id: { h: 'Semua bahasa dan proyek dalam satu daftar', p: 'Direktori interwiki menunjukkan di mana saja sebuah topik ada, lengkap dengan filter, pencarian, dan halaman.', b: ['Filter per proyek', 'Cari bahasa dan judul', '12 tautan per halaman'] }
+  },
+  commons: {
+    en: { h: 'Free images and media, with thumbnails', p: 'Search Wikimedia Commons and see what you find before you open it.', b: ['Image, audio and video files', 'Categories included', 'Paginated, with a page count'] },
+    id: { h: 'Gambar dan media bebas, lengkap dengan thumbnail', p: 'Cari di Wikimedia Commons dan lihat hasilnya sebelum membukanya.', b: ['Berkas gambar, audio, dan video', 'Termasuk kategori', 'Berpaginasi, dengan jumlah halaman'] }
+  },
+  saved: {
+    en: { h: 'Save finds and take them with you', p: 'Saved items are grouped by project. Export and import them as JSON.', b: ['Bookmark any result', 'Grouped by project', 'Move to another browser'] },
+    id: { h: 'Simpan temuan dan bawa ke mana saja', p: 'Item tersimpan dikelompokkan per proyek. Ekspor dan impor sebagai JSON.', b: ['Tandai hasil apa pun', 'Dikelompokkan per proyek', 'Pindah ke peramban lain'] }
+  },
+  languages: {
+    en: { h: '15 languages, light and dark', p: 'The interface and the Wikimedia edition follow the language you choose.', b: ['15 interface languages', 'Results follow the language', 'Light and dark themes'] },
+    id: { h: '15 bahasa, terang dan gelap', p: 'Antarmuka dan edisi Wikimedia mengikuti bahasa yang Anda pilih.', b: ['15 bahasa antarmuka', 'Hasil mengikuti bahasa', 'Tema terang dan gelap'] }
+  }
+};
+const LEGAL = {
+  en: 'Wikipindai is an independent project and is not affiliated with, endorsed by, or sponsored by the Wikimedia Foundation.',
+  id: 'Wikipindai adalah proyek independen dan tidak berafiliasi dengan, didukung, atau disponsori oleh Wikimedia Foundation.'
+};
+const MENU = { en: 'Look up “Borobudur Temple” on Wikipindai', id: 'Cari “Candi Borobudur” di Wikipindai' };
+const GHOST = { en: 'Copy · Search with Google', id: 'Salin · Telusuri dengan Google' };
+
+const q = new URLSearchParams(location.search);
+const lang = q.get('lang') === 'id' ? 'id' : 'en';
+const scene = q.get('scene') || 'detail';
+const t = T[scene][lang];
+document.documentElement.lang = lang;
+document.getElementById('h').textContent = t.h;
+document.getElementById('p').textContent = t.p;
+document.getElementById('b').replaceChildren(...t.b.map((x) => Object.assign(document.createElement('li'), { textContent: x })));
+document.getElementById('legal').textContent = LEGAL[lang];
+document.getElementById('menutext').textContent = MENU[lang];
+document.getElementById('ghost').textContent = GHOST[lang];
+// the faux context menu belongs to the first scene only; the selection bar to the first two
+if (scene !== 'detail') document.getElementById('menu').remove();
+if (scene !== 'detail' && scene !== 'interwiki') document.getElementById('selbar').style.display = 'none';
+else document.getElementById('selbar').style.width = '70px';
+document.getElementById('panel').src = q.get('panel');
+</script>
+</body>
+</html>

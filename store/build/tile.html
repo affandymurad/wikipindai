@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Wikipindai promo tile / marquee</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; overflow: hidden; }
+  body {
+    position: relative;
+    background:
+      radial-gradient(60% 90% at 0% 0%, rgba(56, 189, 248, .38), transparent 62%),
+      radial-gradient(55% 90% at 100% 100%, rgba(79, 70, 229, .6), transparent 62%),
+      linear-gradient(135deg, #1e1b4b 0%, #3730a3 45%, #0369a1 100%);
+    font: 16px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+    color: #fff;
+  }
+  body.tile { width: 880px; height: 560px; }       /* drawn at 2x, downscaled to 440x280 */
+  body.marquee { width: 1400px; height: 560px; }
+  .row { display: flex; align-items: center; gap: 28px; }
+  .icon { flex: none; padding: 12px; border-radius: 26px; background: #fff; box-shadow: 0 10px 30px rgba(2, 6, 23, .4); }
+  .name { font-weight: 800; letter-spacing: -.025em; line-height: 1; }
+  .tag { color: rgba(255, 255, 255, .9); font-weight: 600; line-height: 1.25; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chips span { border-radius: 999px; background: rgba(255, 255, 255, .16); border: 1px solid rgba(255, 255, 255, .28); font-weight: 600; white-space: nowrap; }
+
+  .tile .box { position: absolute; left: 64px; right: 64px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; gap: 34px; }
+  .tile .icon { width: 136px; height: 136px; }
+  .tile .name { font-size: 96px; }
+  .tile .tag { font-size: 34px; margin-top: 6px; }
+  .tile .chips { gap: 10px; }
+  .tile .chips span { font-size: 24px; padding: 6px 18px; }
+
+  .marquee .box { position: absolute; left: 80px; top: 0; bottom: 0; width: 760px; display: flex; flex-direction: column; justify-content: center; gap: 34px; }
+  .marquee .icon { width: 120px; height: 120px; }
+  .marquee .name { font-size: 92px; }
+  .marquee .tag { font-size: 38px; margin-top: 8px; }
+  .marquee .chips span { font-size: 22px; padding: 6px 16px; }
+  .marquee .panel { position: absolute; right: 90px; top: 44px; width: 380px; height: 472px; border-radius: 18px; overflow: hidden; background: #fff; box-shadow: 0 26px 70px rgba(2, 6, 23, .55), 0 0 0 1px rgba(255, 255, 255, .14); }
+  .marquee iframe { width: 380px; height: 472px; border: 0; }
+  .marquee .legal { position: absolute; left: 80px; bottom: 26px; width: 760px; font-size: 14px; color: rgba(255, 255, 255, .62); }
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="row"><img class="icon" src="/build/icon-art.svg" alt=""><div><div class="name">Wikipindai</div><div class="tag" id="tag"></div></div></div>
+  <div class="chips" id="chips"></div>
+</div>
+<div class="panel" id="panelbox" hidden><iframe id="panel" title="Wikipindai"></iframe></div>
+<div class="legal" id="legal" hidden></div>
+<script>
+const q = new URLSearchParams(location.search);
+const kind = q.get('kind') === 'marquee' ? 'marquee' : 'tile';
+const lang = q.get('lang') === 'id' ? 'id' : 'en';
+document.body.className = kind;
+const TAG = { en: 'Look up Wikimedia in a side panel', id: 'Cari Wikimedia di panel samping' };
+const LEGAL = {
+  en: 'Independent project, not affiliated with, endorsed by, or sponsored by the Wikimedia Foundation.',
+  id: 'Proyek independen, tidak berafiliasi dengan, didukung, atau disponsori oleh Wikimedia Foundation.'
+};
+document.getElementById('tag').textContent = TAG[lang];
+// Feature pills instead of a list of project names: the Web Store treats such lists as keyword stuffing.
+const FEATURES = {
+  en: ['Side panel', '15 languages', 'No tracking'],
+  id: ['Panel samping', '15 bahasa', 'Tanpa pelacakan']
+};
+document.getElementById('chips').replaceChildren(...FEATURES[lang].map((n) => Object.assign(document.createElement('span'), { textContent: n })));
+if (kind === 'marquee') {
+  document.getElementById('panelbox').hidden = false;
+  document.getElementById('panel').src = q.get('panel');
+  const l = document.getElementById('legal');
+  l.hidden = false;
+  l.textContent = LEGAL[lang];
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="134 120 1060 1060">
+  <!-- Wikipindai icon: puzzle piece with a "W", used as the lens of a magnifying glass.
+       Redrawn as vector from the supplied artwork; transparent background. -->
+  <g fill="none" stroke="#263238" stroke-linecap="round" stroke-linejoin="round">
+    <!-- magnifier handle and neck -->
+    <path d="M742 842L808 905" stroke-width="44"/>
+    <path d="M836 928L1040 1122" stroke-width="112"/>
+    <!-- puzzle piece (white inside so it stays legible on dark toolbars) -->
+    <path fill="#ffffff" stroke-width="46" d="
+      M350 319 H428
+      C446 319 458 304 457 284
+      A78 78 0 1 1 573 284
+      C572 304 584 319 602 319
+      H690 A100 100 0 0 1 790 419
+      V734 A100 100 0 0 1 690 834
+      H350 A100 100 0 0 1 250 734
+      V702 H280
+      A74 74 0 1 0 280 572
+      H250
+      V419 A100 100 0 0 1 350 319 Z"/>
+  </g>
+  <text x="552" y="706" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="322" fill="#263238">W</text>
+</svg>

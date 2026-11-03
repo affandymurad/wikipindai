@@ -1,0 +1,11 @@
+{
+  "extName": {
+    "message": "Wikipindai"
+  },
+  "extDescription": {
+    "message": "Look up selected text on Wikimedia projects in a side panel. No AI, tracking or own server. Made by Affandy Murad."
+  },
+  "actionTitle": {
+    "message": "Open Wikipindai side panel"
+  }
+}

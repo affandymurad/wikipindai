@@ -1,0 +1,11 @@
+{
+  "extName": {
+    "message": "Wikipindai"
+  },
+  "extDescription": {
+    "message": "Cari teks terpilih di proyek Wikimedia lewat panel samping. Tanpa AI, pelacakan, atau server. Dibuat oleh Affandy Murad."
+  },
+  "actionTitle": {
+    "message": "Buka panel samping Wikipindai"
+  }
+}
