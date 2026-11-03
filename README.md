@@ -8,6 +8,7 @@ text on Wikimedia projects in a side panel. No AI, no tracking, no server of its
 
 [![Wikipindai: detail Wikidata di panel samping](store/screenshots/en/01-detail.png)](https://affandymurad.github.io/wikipindai/)
 
+- Chrome Web Store: <https://chromewebstore.google.com/detail/wikipindai/glcobijbpcbmoafkildiogicojdbdnkg?utm_source=item-share-cb>
 - Halaman proyek / Project page: <https://affandymurad.github.io/wikipindai/>
 - Kebijakan privasi / Privacy policy: <https://affandymurad.github.io/wikipindai/privacy.html>
 - Dibuat oleh / Made by [Affandy Murad](https://meta.wikimedia.org/wiki/User:Affandy_Murad)
