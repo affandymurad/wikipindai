@@ -121,6 +121,8 @@ npm run icons       # ikon ekstensi dan ikon toko dari store/build/icon.svg
 npm run shots       # 5 screenshot x 2 bahasa (1280x800)
 npm run tiles       # promo tile 440x280 dan marquee 1400x560
 npm run zip         # dist/wikipindai-<versi>.zip untuk Chrome Web Store
+npm run zip:firefox # dist/wikipindai-<versi>-firefox.zip untuk Firefox (addons.mozilla.org)
+npm run zip:all     # keduanya
 ```
 
 Teks listing, isian tab Privacy, dan kategori ada di [`store/LISTING.md`](store/LISTING.md) dan
@@ -132,9 +134,10 @@ Teks listing, isian tab Privacy, dan kategori ada di [`store/LISTING.md`](store/
 | --- | --- |
 | `manifest.json` | Konfigurasi, izin / configuration, permissions (`sidePanel`, `contextMenus`, `storage`) |
 | `background.js` | Menu klik kanan, membuka panel samping / context menu, opens the side panel |
+| `firefox/manifest.json` | Manifest khusus Firefox (sidebar_action); sisanya berkas yang sama / Firefox-only manifest, everything else is shared. Samakan `version` dengan `manifest.json` / keep `version` equal to `manifest.json` |
 | `sidepanel.html/css/js` | Antarmuka panel / panel UI: search, modes, Wikidata detail, history, saved |
 | `languages.js` | Registri bahasa dan teks Inggris/Indonesia / language registry and English/Indonesian strings |
-| `translations.js` | Terjemahan 13 bahasa lain dan teks tambahan / the other 13 languages and extra strings |
+| `translations.js` | Terjemahan 28 bahasa lain dan teks tambahan / the other 28 languages and extra strings |
 | `_locales/` | Nama dan deskripsi ekstensi / extension name and description (en, id) |
 | `icons/`, `flags/`, `tools/` | Ikon ekstensi, bendera pemilih bahasa, ikon alat / extension icons, language flags, tool icon |
 | `LICENSE` | MIT untuk kode Wikipindai / MIT for the Wikipindai code |
@@ -144,7 +147,9 @@ Teks listing, isian tab Privacy, dan kategori ada di [`store/LISTING.md`](store/
 ## Bahasa antarmuka / Interface languages
 
 English, Bahasa Indonesia, Bahasa Melayu, 한국어, Español, Français, Deutsch, 日本語, 中文, العربية,
-Nederlands, Русский, ไทย, தமிழ், עברית. Arab dan Ibrani tampil dari kanan ke kiri. / Arabic and Hebrew are
+Nederlands, Русский, ไทย, עברית, हिन्दी, Tiếng Việt, Italiano, Português, Polski, Türkçe, Українська, Svenska,
+Čeština, فارسی, Suomi, Magyar, Norsk, اردو, বাংলা, Ελληνικά. Arab, Ibrani, Persia, dan Urdu tampil dari kanan ke kiri. /
+Arabic, Hebrew, Persian and Urdu are
 shown right to left.
 
 ## Lisensi dan atribusi / License and attribution

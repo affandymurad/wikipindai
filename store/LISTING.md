@@ -13,7 +13,7 @@ ke paket ZIP. Semua gambar dibuat ulang dengan `store/build/` (lihat bagian pali
 ## 2. Bahasa listing / Listing languages
 
 Tambahkan dua bahasa di tab Store listing: **Indonesian (id)** dan **English**. Antarmuka ekstensi sendiri
-mendukung 15 bahasa. Pasang screenshot dan promo tile sesuai bahasa listing (folder `en/` dan `id/`).
+mendukung 30 bahasa. Pasang screenshot dan promo tile sesuai bahasa listing (folder `en/` dan `id/`).
 
 ## 3. Nama dan ringkasan / Name and summary
 
@@ -47,7 +47,7 @@ YANG ANDA DAPATKAN
 • Hasil gambar dengan thumbnail, serta hasil berpaginasi dengan jumlah halaman.
 • Riwayat dikelompokkan per tanggal dan jam; item tersimpan dikelompokkan per proyek, dengan ekspor dan impor
   JSON.
-• 15 bahasa antarmuka dengan tema terang dan gelap. Mengganti bahasa memuat ulang hasil dari edisi bahasa itu.
+• 30 bahasa antarmuka dengan tema terang dan gelap. Mengganti bahasa memuat ulang hasil dari edisi bahasa itu.
 
 PRIVASI
 Tanpa AI, tanpa pelacakan, tanpa server sendiri. Pencarian hanya dikirim ke situs yang Anda cari, riwayat dan item
@@ -78,7 +78,7 @@ WHAT YOU GET
   pages.
 • Image results with thumbnails, and paginated results with a page count.
 • History grouped by date and time; saved items grouped by project, with JSON export and import.
-• 15 interface languages with light and dark themes. Changing language reloads the results from that
+• 30 interface languages with light and dark themes. Changing language reloads the results from that
   language's edition.
 
 PRIVACY
@@ -104,7 +104,7 @@ Project page: https://affandymurad.github.io/wikipindai/
 | Marquee promo tile (opsional) | 1400×560 | `store/assets/marquee-1400x560-id.png`, `…-en.png` |
 
 Urutan screenshot / order: 1 detail Wikidata, 2 direktori interwiki, 3 hasil Commons dengan thumbnail,
-4 item tersimpan, 5 15 bahasa dalam mode gelap.
+4 item tersimpan, 5 30 bahasa dalam mode gelap.
 
 ## 6. Tab "Privacy"
 

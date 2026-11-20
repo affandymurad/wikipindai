@@ -61,8 +61,8 @@ const LEGAL = {
 document.getElementById('tag').textContent = TAG[lang];
 // Feature pills instead of a list of project names: the Web Store treats such lists as keyword stuffing.
 const FEATURES = {
-  en: ['Side panel', '15 languages', 'No tracking'],
-  id: ['Panel samping', '15 bahasa', 'Tanpa pelacakan']
+  en: ['Side panel', '30 languages', 'No tracking'],
+  id: ['Panel samping', '30 bahasa', 'Tanpa pelacakan']
 };
 document.getElementById('chips').replaceChildren(...FEATURES[lang].map((n) => Object.assign(document.createElement('span'), { textContent: n })));
 if (kind === 'marquee') {

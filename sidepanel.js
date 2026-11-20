@@ -124,7 +124,10 @@ function setContent(...nodes) {
 
 const SPEECH_LANGS = {
   en: 'en-US', id: 'id-ID', ms: 'ms-MY', ko: 'ko-KR', es: 'es-ES', fr: 'fr-FR', de: 'de-DE', ja: 'ja-JP',
-  zh: 'zh-CN', ar: 'ar-SA', nl: 'nl-NL', ru: 'ru-RU', th: 'th-TH', ta: 'ta-IN', he: 'he-IL'
+  zh: 'zh-CN', ar: 'ar-SA', nl: 'nl-NL', ru: 'ru-RU', th: 'th-TH', he: 'he-IL',
+  hi: 'hi-IN', vi: 'vi-VN', it: 'it-IT', pt: 'pt-BR', pl: 'pl-PL', tr: 'tr-TR',
+  uk: 'uk-UA', sv: 'sv-SE', cs: 'cs-CZ', fa: 'fa-IR', fi: 'fi-FI', hu: 'hu-HU',
+  no: 'nb-NO', ur: 'ur-PK', bn: 'bn-BD', el: 'el-GR'
 };
 let speaking = false;
 let speechPaint = null;
@@ -892,7 +895,7 @@ function applyTheme() {
 // Tools listed on https://meta.wikimedia.org/wiki/User:Affandy_Murad
 const AUTHOR_URL = 'https://meta.wikimedia.org/wiki/User:Affandy_Murad';
 const TOOLS = [
-  { id: 'wikilokal', name: 'Wikilokal', url: 'https://wikilokal.netlify.app/', img: 'tools/wikilokal.png' },
+  { id: 'wikilokal', name: 'Wikilokal', url: 'https://wikilokal.web.app/location', img: 'tools/wikilokal.png' },
   { id: 'timefids', name: 'Time FIDS', url: 'https://time-fids.web.app/', icon: '✈️' },
   { id: 'wikigaleri', name: 'WikiGaleri', url: 'https://wikigaleri.web.app/', icon: '🖼️' },
   { id: 'wikirekap', name: 'Wikirekap', url: 'https://affandymurad.github.io/wikirekap', icon: '📊' },
@@ -900,15 +903,19 @@ const TOOLS = [
   { id: 'wikiabstrak', name: 'Wikiabstrak', url: 'https://wikiabstrak.web.app/', icon: '📝', takesQuery: true, takesLang: true },
   { id: 'medwikinoimage', name: 'MedWikiNoImage', url: 'https://affandymurad.github.io/medwikinoimage/', icon: '🩺' },
   { id: 'wikisuara', name: 'WikiSuara', url: 'https://wikisuara.web.app/', icon: '🎙️' },
-  { id: 'wikitools', name: 'Kumpulan Alat Wiki', url: 'https://affandymurad.github.io/wiki/', icon: '🛠️', takesQuery: true }
+  { id: 'wikitools', name: 'Kumpulan Alat Wiki', url: 'https://affandymurad.github.io/wiki/', icon: '🛠️', takesQuery: true },
+  { id: 'wikilacak', name: 'Wikilacak', url: 'https://affandymurad.github.io/wikilacak/?project=wikipedia', icon: '📡' },
+  { id: 'wikitamasya', name: 'Wikitamasya', url: 'https://affandymurad.github.io/wikitamasya/', icon: '🧭' },
+  { id: 'wikikoran', name: 'Wikikoran', url: 'https://affandymurad.github.io/wikikoran/', icon: '📰', takesHash: true }
 ];
 
 // Tools that accept ?q= open with the current search text; with an empty search box they open without it.
-// Wikiabstrak also takes ?lang=, so it opens in the interface language.
+// Wikiabstrak also takes ?lang=, so it opens in the interface language. Wikikoran does the same through #<lang>.
 function toolUrl(tool) {
   const q = $('#q').value.trim();
-  if (!tool.takesQuery && !tool.takesLang) return tool.url;
+  if (!tool.takesQuery && !tool.takesLang && !tool.takesHash) return tool.url;
   const u = new URL(tool.url);
+  if (tool.takesHash) u.hash = S.lang;
   if (tool.takesQuery && q) u.searchParams.set('q', q);
   if (tool.takesLang) u.searchParams.set('lang', S.lang);
   return u.href;

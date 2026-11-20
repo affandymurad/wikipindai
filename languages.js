@@ -190,17 +190,122 @@ export const LANGUAGES = {
     ui: {} // filled from translations.js
   },
 
-  ta: {
-    name: 'தமிழ்',
+  he: {
+    name: 'עברית',
+    flag: 'il',
+    dir: 'rtl',
+    ui: {} // filled from translations.js
+  },
+
+  hi: {
+    name: 'हिन्दी',
     flag: 'in',
     dir: 'ltr',
     ui: {} // filled from translations.js
   },
 
-  he: {
-    name: 'עברית',
-    flag: 'il',
+  vi: {
+    name: 'Tiếng Việt',
+    flag: 'vn',
+    dir: 'ltr',
+    ui: {} // filled from translations.js
+  },
+
+  it: {
+    name: 'Italiano',
+    flag: 'it',
+    dir: 'ltr',
+    ui: {} // filled from translations.js
+  },
+
+  pt: {
+    name: 'Português',
+    flag: 'br',
+    dir: 'ltr',
+    ui: {} // filled from translations.js
+  },
+
+  pl: {
+    name: 'Polski',
+    flag: 'pl',
+    dir: 'ltr',
+    ui: {} // filled from translations.js
+  },
+
+  tr: {
+    name: 'Türkçe',
+    flag: 'tr',
+    dir: 'ltr',
+    ui: {} // filled from translations.js
+  },
+
+  uk: {
+    name: 'Українська',
+    flag: 'ua',
+    dir: 'ltr',
+    ui: {} // filled from translations.js
+  },
+
+  sv: {
+    name: 'Svenska',
+    flag: 'se',
+    dir: 'ltr',
+    ui: {} // filled from translations.js
+  },
+
+  cs: {
+    name: 'Čeština',
+    flag: 'cz',
+    dir: 'ltr',
+    ui: {} // filled from translations.js
+  },
+
+  fa: {
+    name: 'فارسی',
+    flag: 'ir',
     dir: 'rtl',
+    ui: {} // filled from translations.js
+  },
+
+  fi: {
+    name: 'Suomi',
+    flag: 'fi',
+    dir: 'ltr',
+    ui: {} // filled from translations.js
+  },
+
+  hu: {
+    name: 'Magyar',
+    flag: 'hu',
+    dir: 'ltr',
+    ui: {} // filled from translations.js
+  },
+
+  no: {
+    name: 'Norsk',
+    flag: 'no',
+    dir: 'ltr',
+    ui: {} // filled from translations.js
+  },
+
+  ur: {
+    name: 'اردو',
+    flag: 'pk',
+    dir: 'rtl',
+    ui: {} // filled from translations.js
+  },
+
+  bn: {
+    name: 'বাংলা',
+    flag: 'bd',
+    dir: 'ltr',
+    ui: {} // filled from translations.js
+  },
+
+  el: {
+    name: 'Ελληνικά',
+    flag: 'gr',
+    dir: 'ltr',
     ui: {} // filled from translations.js
   }
 };

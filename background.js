@@ -2,6 +2,17 @@ import { LANGUAGES, DEFAULT_LANG, t } from './languages.js';
 
 const MENU_ID = 'lookup-selection';
 
+// Chrome and Edge have a side panel (chrome.sidePanel); Firefox has a sidebar (sidebarAction).
+// The same file serves both, picking the API that exists.
+const HAS_SIDE_PANEL = !!chrome.sidePanel;
+
+async function enableActionOpensPanel() {
+  if (HAS_SIDE_PANEL) await chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true });
+}
+
+// Firefox has no "open on action click" setting, so the toolbar button toggles the sidebar itself.
+if (!HAS_SIDE_PANEL) chrome.action.onClicked.addListener(() => (globalThis.browser ?? chrome).sidebarAction.toggle());
+
 async function getLang() {
   const { lang } = await chrome.storage.local.get('lang');
   return LANGUAGES[lang] ? lang : DEFAULT_LANG;
@@ -22,12 +33,12 @@ chrome.runtime.onInstalled.addListener(async (details) => {
     const code = ui.split('-')[0];
     await chrome.storage.local.set({ lang: LANGUAGES[code] ? code : DEFAULT_LANG });
   }
-  await chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true });
+  await enableActionOpensPanel();
   await buildMenu();
 });
 
 chrome.runtime.onStartup.addListener(() => {
-  chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true }).catch(() => {});
+  enableActionOpensPanel().catch(() => {});
   buildMenu();
 });
 
@@ -40,9 +51,10 @@ async function lookup(text, tabId, windowId) {
   const q = String(text || '').replace(/\s+/g, ' ').trim().slice(0, 150);
   if (!q) return;
   // Open the panel first, while the user gesture is still valid.
-  const opening = chrome.sidePanel
-    .open(tabId != null && tabId >= 0 ? { tabId } : { windowId })
-    .catch(() => {});
+  const opening = (HAS_SIDE_PANEL
+    ? chrome.sidePanel.open(tabId != null && tabId >= 0 ? { tabId } : { windowId })
+    : (globalThis.browser ?? chrome).sidebarAction.open()
+  ).catch(() => {});
   await chrome.storage.session.set({ pending: { q, t: Date.now(), windowId } });
   await opening;
 }

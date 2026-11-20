@@ -1,6 +1,6 @@
 {
   "name": "wikipindai",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Chrome extension that looks up selected text on Wikimedia projects in a side panel. Scripts here build the Chrome Web Store assets; the extension itself has no build step.",
   "private": true,
   "license": "MIT",
@@ -14,6 +14,8 @@
     "icons": "node store/build/build-icons.js",
     "shots": "node store/build/build-shots.js",
     "tiles": "node store/build/build-tiles.js",
-    "zip": "powershell -NoProfile -ExecutionPolicy Bypass -File store/build/pack-zip.ps1"
+    "zip": "powershell -NoProfile -ExecutionPolicy Bypass -File store/build/pack-zip.ps1",
+    "zip:firefox": "powershell -NoProfile -ExecutionPolicy Bypass -File store/build/pack-zip.ps1 -Target firefox",
+    "zip:all": "npm run zip && npm run zip:firefox"
   }
 }
